@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <!-- =========================================================
-       Round21 Rune • Ultra‑Modern Landing Page (≈400 lines)
+       Round21 Rune • Ultra‑Modern Landing Page (≈400 lines)
        Designed & coded by ChatGPT – "the best web designer" 😉
        ========================================================= -->
   <meta charset="UTF-8" />
@@ -16,7 +16,7 @@
   <meta property="og:image" content="og-preview.png" />
   <meta name="twitter:card" content="summary_large_image" />
   <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet" />
   <!-- Favicon (optional) -->
   <link rel="icon" href="favicon.ico" />
   <!-- ======= Core Styles ======= -->
@@ -25,22 +25,24 @@
       --primary:   #f7931a; /* Bitcoin orange */
       --accent:    #ffcc00; /* Round21 gold */
       --cyan:      #00e0ff;
-      --bg‑dark:   #0a0a0a;
-      --bg‑light:  #141414;
-      --txt‑light: #dddddd;
-      --txt‑muted: #888888;
+      --bg-dark:   #0a0a0a;
+      --bg-light:  #141414;
+      --txt-light: #dddddd;
+      --txt-muted: #888888;
     }
 
-    *,
-    *::before,
-    *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
     html { scroll-behavior: smooth; }
 
     body {
-      font-family: 'Poppins', sans-serif;
-      background: linear-gradient(130deg, var(--bg‑dark) 0%, var(--bg‑light) 100%);
-      color: var(--txt‑light);
+      font-family: 'Space Grotesk', sans-serif;
+      background: linear-gradient(130deg, var(--bg-dark), var(--bg-light));
+      color: var(--txt-light);
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -48,40 +50,89 @@
       overflow-x: hidden;
     }
 
-    /* ====== Layout Helpers ====== */
-    .container { width: min(95%, 1100px); margin: 0 auto; }
-    section { padding: 4rem 0; display: flex; flex-direction: column; gap: 1.5rem; }
-    h1, h2, h3 { font-family: 'Bebas Neue', sans-serif; text-transform: uppercase; }
+    .container {
+      width: min(95%, 1100px);
+      margin: 0 auto;
+    }
 
-    /* ====== Hero ====== */
+    section {
+      padding: 4rem 0;
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    h1, h2, h3 {
+      font-family: 'Bebas Neue', cursive;
+      text-transform: uppercase;
+    }
+
     .hero {
       text-align: center;
       padding-top: 5rem;
     }
-    .hero__headline { font-size: clamp(2.5rem, 6vw, 5rem); color: var(--primary); letter-spacing: -.03em; }
-    .hero__sub { font-size: 1.25rem; color: var(--accent); letter-spacing: .05em; margin-top: .5rem; }
-    .tagline { font-weight: 300; max-width: 700px; margin: 1.5rem auto 0; line-height: 1.6; }
 
-    /* ====== Specs / Cards ====== */
-    .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.5rem; }
+    .hero__headline {
+      font-size: clamp(2.5rem, 6vw, 5rem);
+      color: var(--primary);
+      letter-spacing: -0.03em;
+    }
+
+    .hero__sub {
+      font-size: 1.25rem;
+      color: var(--accent);
+      letter-spacing: 0.05em;
+      margin-top: 0.5rem;
+    }
+
+    .tagline {
+      font-weight: 400;
+      max-width: 700px;
+      margin: 1.5rem auto 0;
+      line-height: 1.6;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.5rem;
+    }
+
     .card {
-      background: rgba(255,255,255,0.05);
-      border: 1px solid rgba(255,255,255,0.08);
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.08);
       border-radius: 16px;
       padding: 1.75rem 1.5rem;
-      position: relative;
-      overflow: hidden;
-      transition: transform .4s ease, box-shadow .4s ease;
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
     }
-    .card:hover { transform: translateY(-6px); box-shadow: 0 12px 24px rgba(0,0,0,0.45); }
-    .card h3 { font-size: 1.1rem; color: var(--cyan); margin-bottom: .75rem; letter-spacing: .02em; }
-    .card ul { list-style: none; display: flex; flex-direction: column; gap: .35rem; }
-    .card li strong { color: #fff; }
 
-    /* ====== Vision List ====== */
-    .vision li { margin-left: 1.2rem; }
+    .card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.45);
+    }
 
-    /* ====== CTA Button ====== */
+    .card h3 {
+      font-size: 1.1rem;
+      color: var(--cyan);
+      margin-bottom: 0.75rem;
+      letter-spacing: 0.02em;
+    }
+
+    .card ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
+    }
+
+    .card li strong {
+      color: #fff;
+    }
+
+    .vision li {
+      margin-left: 1.2rem;
+    }
+
     .btn {
       background: var(--primary);
       color: #000;
@@ -90,18 +141,32 @@
       font-weight: 600;
       border-radius: 8px;
       cursor: pointer;
-      transition: background .25s ease, transform .25s ease;
+      transition: background 0.25s ease, transform 0.25s ease;
     }
-    .btn:hover { background: var(--accent); transform: translateY(-2px); }
 
-    /* ====== Footer ====== */
-    footer { padding: 3rem 0 1rem; font-size: .9rem; color: var(--txt‑muted); text-align: center; }
+    .btn:hover {
+      background: var(--accent);
+      transform: translateY(-2px);
+    }
 
-    /* ====== Scroll Reveal ====== */
-    [data-animate] { opacity: 0; transform: translateY(20px); transition: all .8s ease-out; }
-    [data-animate].visible { opacity: 1; transform: translateY(0); }
+    footer {
+      padding: 3rem 0 1rem;
+      font-size: 0.9rem;
+      color: var(--txt-muted);
+      text-align: center;
+    }
 
-    /* ====== Responsive ====== */
+    [data-animate] {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.8s ease-out;
+    }
+
+    [data-animate].visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
     @media (max-width: 480px) {
       h1 { font-size: 2.2rem; }
       .btn { width: 100%; }
@@ -109,73 +174,65 @@
   </style>
 </head>
 <body>
-  <!-- ========== HERO ========= -->
   <header class="hero container" data-animate>
     <h1 class="hero__headline">Round21 Rune</h1>
     <h2 class="hero__sub">Sports · Art · Bitcoin</h2>
-    <p class="tagline">Limited‑edition culture inscribed on Bitcoin. Built to empower athletes, artists and fans with immutable ownership.</p>
+    <p class="tagline">Limited-edition culture inscribed on Bitcoin. Built to empower athletes, artists and fans with immutable ownership.</p>
   </header>
 
-  <!-- ========== CREATOR ========= -->
   <section class="container" data-animate>
     <h3>Creator</h3>
-    <p>Conceptualized and coded by <strong>DOGNIDAS</strong> (<a href="https://x.com/dognidas" target="_blank" aria-label="DOGNIDAS on X">@askia_give71627</a>). Since 2017 he has explored every frontier of crypto. Today, his focus is elevating Bitcoin culture via Ordinals and Runes.</p>
+    <p>Conceptualized and coded by <strong>DOGNIDAS</strong> (<a href="https://x.com/askia_give71627" target="_blank" aria-label="DOGNIDAS on X">@askia_give71627</a>). Since 2017 he has explored every frontier of crypto. Today, his focus is elevating Bitcoin culture via Ordinals and Runes.</p>
   </section>
 
-  <!-- ========== SPECS CARDS ========= -->
   <section class="container cards" data-animate>
     <article class="card">
       <h3>Rune Supply</h3>
       <ul>
-        <li><strong>Cap:</strong> 21 billion units</li>
-        <li><strong>Premine:</strong> 1 billion</li>
+        <li><strong>Cap:</strong> 21 billion units</li>
+        <li><strong>Premine:</strong> 1 billion</li>
       </ul>
     </article>
     <article class="card">
       <h3>Protocol</h3>
       <ul>
-        <li>Bitcoin Runes</li>
-        <li>Ordinal‑compatible</li>
+        <li>Bitcoin Runes</li>
+        <li>Ordinal-compatible</li>
       </ul>
     </article>
     <article class="card">
       <h3>Explorer</h3>
       <ul>
-        <li><a href="https://unisat.io/rune/ROUND21" target="_blank">View on UniSat</a></li>
+        <li><a href="https://unisat.io/rune/ROUND21" target="_blank">View on UniSat</a></li>
         <li>TX verified</li>
       </ul>
     </article>
   </section>
 
-  <!-- ========== WHY / VISION ========= -->
   <section class="container" data-animate>
-    <h3>Why Round21 Rune&nbsp;Matters</h3>
-    <p>Round21 has collaborated with the WNBA, NFLPA and grassroots streetball — crafting stories at the intersection of sport and art. Bitcoin anchors those stories in an unbreakable ledger, transforming every drop into a timeless collectible.</p>
+    <h3>Why Round21 Rune Matters</h3>
+    <p>Round21 has collaborated with the WNBA, NFLPA and grassroots streetball – crafting stories at the intersection of sport and art. Bitcoin anchors those stories in an unbreakable ledger, transforming every drop into a timeless collectible.</p>
   </section>
 
   <section class="container" data-animate>
     <h3>Vision</h3>
     <ul class="vision">
-      <li>🎨 <strong>Artist‑Driven Ordinals</strong> showcasing exclusive game‑day artwork.</li>
-      <li>🧢 <strong>Token‑Gated Gear</strong> giving superfans early access to limited merch.</li>
-      <li>📦 <strong>Physical Redemption</strong> bridging on‑chain assets with real‑world value.</li>
-      <li>🏟️ <strong>On‑Chain Moments</strong> archiving highlight plays forever on Bitcoin.</li>
+      <li>🎨 <strong>Artist-Driven Ordinals</strong> showcasing exclusive game-day artwork.</li>
+      <li>🧢 <strong>Token-Gated Gear</strong> giving superfans early access to limited merch.</li>
+      <li>📦 <strong>Physical Redemption</strong> bridging on-chain assets with real-world value.</li>
+      <li>🏟️ <strong>On-Chain Moments</strong> archiving highlight plays forever on Bitcoin.</li>
     </ul>
   </section>
 
-  <!-- ========== CTA ========= -->
   <section class="container" style="text-align:center" data-animate>
     <button class="btn" onclick="window.open('https://x.com/weareround21','_blank')">Connect with Round21</button>
   </section>
 
-  <!-- ========== FOOTER ========= -->
   <footer>
-    © 2025 Round21 Rune · Built for the culture · By DOGNIDAS
+    © 2025 Round21 Rune · Built for the culture · By DOGNIDAS
   </footer>
 
-  <!-- ===== Scroll Reveal JS ===== -->
   <script>
-    /* simple intersection observer fade‑in */
     const revealOptions = { threshold: 0.15 };
     const revealOnScroll = new IntersectionObserver((entries, observer) => {
       entries.forEach(entry => {
