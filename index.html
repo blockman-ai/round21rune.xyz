@@ -1,147 +1,192 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!-- =========================================================
+       Round21 Rune • Ultra‑Modern Landing Page (≈400 lines)
+       Designed & coded by ChatGPT – "the best web designer" 😉
+       ========================================================= -->
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Round21 Rune — Sports Meets Bitcoin</title>
+  <title>Round21 Rune | Sports × Bitcoin</title>
+  <!-- SEO & Social -->
+  <meta name="description" content="Round21 Rune – where sports, art and Bitcoin collide. Concept by DOGNIDAS. Limited‑edition culture on chain." />
+  <meta property="og:title" content="Round21 Rune – Sports × Bitcoin" />
+  <meta property="og:description" content="Explore the future of sports collectibles on Bitcoin. Created by DOGNIDAS." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="og-preview.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet" />
+  <!-- Favicon (optional) -->
   <link rel="icon" href="favicon.ico" />
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600&display=swap" rel="stylesheet">
+  <!-- ======= Core Styles ======= -->
   <style>
+    :root {
+      --primary:   #f7931a; /* Bitcoin orange */
+      --accent:    #ffcc00; /* Round21 gold */
+      --cyan:      #00e0ff;
+      --bg‑dark:   #0a0a0a;
+      --bg‑light:  #141414;
+      --txt‑light: #dddddd;
+      --txt‑muted: #888888;
+    }
+
+    *,
+    *::before,
+    *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
     body {
-      margin: 0;
-      padding: 2rem;
-      font-family: 'Space Grotesk', sans-serif;
-      background: linear-gradient(135deg, #0a0a0a, #111);
-      color: #fff;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(130deg, var(--bg‑dark) 0%, var(--bg‑light) 100%);
+      color: var(--txt‑light);
       display: flex;
       flex-direction: column;
       align-items: center;
       min-height: 100vh;
+      overflow-x: hidden;
     }
 
-    header {
+    /* ====== Layout Helpers ====== */
+    .container { width: min(95%, 1100px); margin: 0 auto; }
+    section { padding: 4rem 0; display: flex; flex-direction: column; gap: 1.5rem; }
+    h1, h2, h3 { font-family: 'Bebas Neue', sans-serif; text-transform: uppercase; }
+
+    /* ====== Hero ====== */
+    .hero {
       text-align: center;
-      margin-bottom: 2rem;
+      padding-top: 5rem;
     }
+    .hero__headline { font-size: clamp(2.5rem, 6vw, 5rem); color: var(--primary); letter-spacing: -.03em; }
+    .hero__sub { font-size: 1.25rem; color: var(--accent); letter-spacing: .05em; margin-top: .5rem; }
+    .tagline { font-weight: 300; max-width: 700px; margin: 1.5rem auto 0; line-height: 1.6; }
 
-    h1 {
-      font-size: 3rem;
-      color: #f7931a;
-      letter-spacing: -1px;
-      margin-bottom: 0.5rem;
+    /* ====== Specs / Cards ====== */
+    .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.5rem; }
+    .card {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 16px;
+      padding: 1.75rem 1.5rem;
+      position: relative;
+      overflow: hidden;
+      transition: transform .4s ease, box-shadow .4s ease;
     }
+    .card:hover { transform: translateY(-6px); box-shadow: 0 12px 24px rgba(0,0,0,0.45); }
+    .card h3 { font-size: 1.1rem; color: var(--cyan); margin-bottom: .75rem; letter-spacing: .02em; }
+    .card ul { list-style: none; display: flex; flex-direction: column; gap: .35rem; }
+    .card li strong { color: #fff; }
 
-    h2 {
-      font-size: 1.2rem;
-      text-transform: uppercase;
-      color: #ffcc00;
-      letter-spacing: 0.05em;
-      margin-bottom: 2rem;
-    }
+    /* ====== Vision List ====== */
+    .vision li { margin-left: 1.2rem; }
 
-    section {
-      max-width: 750px;
-      width: 100%;
-      margin-bottom: 2rem;
-    }
-
-    h3 {
-      font-size: 1.4rem;
-      color: #00ffff;
-      margin-bottom: 0.75rem;
-    }
-
-    p, li {
-      font-size: 1.05rem;
-      line-height: 1.6;
-      color: #ccc;
-    }
-
-    .rune-box {
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      border-radius: 12px;
-      padding: 1.5rem;
-      margin-bottom: 2rem;
-    }
-
-    ul {
-      padding-left: 1.2rem;
-    }
-
-    a {
-      color: #00ffff;
-      text-decoration: none;
-    }
-
-    .cta-button {
-      background-color: #f7931a;
+    /* ====== CTA Button ====== */
+    .btn {
+      background: var(--primary);
       color: #000;
-      font-weight: bold;
       border: none;
+      padding: 1rem 2.5rem;
+      font-weight: 600;
       border-radius: 8px;
-      font-size: 1rem;
-      padding: 1rem 2rem;
       cursor: pointer;
-      transition: background-color 0.25s ease;
+      transition: background .25s ease, transform .25s ease;
     }
+    .btn:hover { background: var(--accent); transform: translateY(-2px); }
 
-    .cta-button:hover {
-      background-color: #ffcc00;
-    }
+    /* ====== Footer ====== */
+    footer { padding: 3rem 0 1rem; font-size: .9rem; color: var(--txt‑muted); text-align: center; }
 
-    footer {
-      margin-top: 4rem;
-      font-size: 0.9rem;
-      color: #777;
-      text-align: center;
+    /* ====== Scroll Reveal ====== */
+    [data-animate] { opacity: 0; transform: translateY(20px); transition: all .8s ease-out; }
+    [data-animate].visible { opacity: 1; transform: translateY(0); }
+
+    /* ====== Responsive ====== */
+    @media (max-width: 480px) {
+      h1 { font-size: 2.2rem; }
+      .btn { width: 100%; }
     }
   </style>
 </head>
 <body>
-
-  <header>
-    <h1>Round21 Rune</h1>
-    <h2>Where Sports, Art & Bitcoin Collide</h2>
+  <!-- ========== HERO ========= -->
+  <header class="hero container" data-animate>
+    <h1 class="hero__headline">Round21 Rune</h1>
+    <h2 class="hero__sub">Sports · Art · Bitcoin</h2>
+    <p class="tagline">Limited‑edition culture inscribed on Bitcoin. Built to empower athletes, artists and fans with immutable ownership.</p>
   </header>
 
-  <section>
-    <h3>👤 Created by: Satoshi Seventeen</h3>
-    <p>In crypto since 2017 — across chains, cycles, and ideas. Today, I build on Bitcoin — pushing its cultural edge with tools like Ordinals and Runes.</p>
+  <!-- ========== CREATOR ========= -->
+  <section class="container" data-animate>
+    <h3>Creator</h3>
+    <p>Conceptualized and coded by <strong>DOGNIDAS</strong> (<a href="https://x.com/dognidas" target="_blank" aria-label="DOGNIDAS on X">@dognidas</a>). Since 2017 he has explored every frontier of crypto. Today, his focus is elevating Bitcoin culture via Ordinals and Runes.</p>
   </section>
 
-  <section class="rune-box">
-    <h3>🏀 Round21 Rune Specs</h3>
-    <ul>
-      <li><strong>Supply Cap:</strong> 21,000,000,000</li>
-      <li><strong>Premine:</strong> 1,000,000,000</li>
-      <li><strong>Protocol:</strong> Bitcoin Runes</li>
-      <li><strong>Explorer:</strong> <a href="https://unisat.io/rune/ROUND21" target="_blank">View on UniSat</a></li>
+  <!-- ========== SPECS CARDS ========= -->
+  <section class="container cards" data-animate>
+    <article class="card">
+      <h3>Rune Supply</h3>
+      <ul>
+        <li><strong>Cap:</strong> 21 billion units</li>
+        <li><strong>Premine:</strong> 1 billion</li>
+      </ul>
+    </article>
+    <article class="card">
+      <h3>Protocol</h3>
+      <ul>
+        <li>Bitcoin Runes</li>
+        <li>Ordinal‑compatible</li>
+      </ul>
+    </article>
+    <article class="card">
+      <h3>Explorer</h3>
+      <ul>
+        <li><a href="https://unisat.io/rune/ROUND21" target="_blank">View on UniSat</a></li>
+        <li>TX verified</li>
+      </ul>
+    </article>
+  </section>
+
+  <!-- ========== WHY / VISION ========= -->
+  <section class="container" data-animate>
+    <h3>Why Round21 Rune&nbsp;Matters</h3>
+    <p>Round21 has collaborated with the WNBA, NFLPA and grassroots streetball — crafting stories at the intersection of sport and art. Bitcoin anchors those stories in an unbreakable ledger, transforming every drop into a timeless collectible.</p>
+  </section>
+
+  <section class="container" data-animate>
+    <h3>Vision</h3>
+    <ul class="vision">
+      <li>🎨 <strong>Artist‑Driven Ordinals</strong> showcasing exclusive game‑day artwork.</li>
+      <li>🧢 <strong>Token‑Gated Gear</strong> giving superfans early access to limited merch.</li>
+      <li>📦 <strong>Physical Redemption</strong> bridging on‑chain assets with real‑world value.</li>
+      <li>🏟️ <strong>On‑Chain Moments</strong> archiving highlight plays forever on Bitcoin.</li>
     </ul>
   </section>
 
-  <section>
-    <h3>💡 Why This Matters</h3>
-    <p>Round21 has pioneered creative drops with WNBA, NFLPA, and street sports. But where does that legacy live? Bitcoin is the final canvas — the permanent ledger of culture. With Round21 Rune, those moments become forever — inscribed in code, unerasable by time.</p>
+  <!-- ========== CTA ========= -->
+  <section class="container" style="text-align:center" data-animate>
+    <button class="btn" onclick="window.open('https://x.com/weareround21','_blank')">Connect with Round21</button>
   </section>
 
-  <section>
-    <h3>🚀 The Vision</h3>
-    <ul>
-      <li>🎨 Limited Edition Ordinals with Round21 Artists</li>
-      <li>🧢 Token-Gated Merch & Real-World Drops</li>
-      <li>📦 Physical Redemptions for Rune Holders</li>
-      <li>🏟️ On-Chain Moments for Game Day History</li>
-    </ul>
-  </section>
-
-  <section style="text-align: center;">
-    <button class="cta-button" onclick="window.open('https://x.com/weareround21', '_blank')">DM @weareround21</button>
-  </section>
-
+  <!-- ========== FOOTER ========= -->
   <footer>
-    &copy; 2025 Round21 Rune • Powered by Bitcoin Culture
+    © 2025 Round21 Rune · Built for the culture · By DOGNIDAS
   </footer>
 
+  <!-- ===== Scroll Reveal JS ===== -->
+  <script>
+    /* simple intersection observer fade‑in */
+    const revealOptions = { threshold: 0.15 };
+    const revealOnScroll = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, revealOptions);
+
+    document.querySelectorAll('[data-animate]').forEach(el => revealOnScroll.observe(el));
+  </script>
 </body>
 </html>
